@@ -1,0 +1,1282 @@
+/*页面通用样式*/
+body{
+	font:12px "微软雅黑",Arial,Helvetica,sans-serif;
+	color:#666;对/* 超链接无效，超链接需要再定义 */
+	margin:0;
+	min-width:960px;
+}
+p,h1,h2,h3,h4,h5,h6,ul,ol,dl,dd,form,input{
+	margin:0;
+	padding:0;
+	list-style:none;
+}
+/* 三个类选择器，谁需要时就引用，减少了代码的冗余 */
+.lf{float:left;}
+.rt{float:right;}
+.clear{clear:both;}
+/* 页面中所有a标签的样式 */
+a{
+ 	color:#666;
+ 	text-decoration:none;
+ }
+/* 页面中所有a标签点击时的样式 */
+ a:hover{
+ 	color:#FF0700;
+ 	text-decoration:underline;
+ }
+ /* 布局样式 */
+ #top-box,#top-main,#nav,#banner,#main,#foot-box,#footer{
+	width:1211px;
+	margin:0 auto;
+ }
+ /* #top灰色长条 */
+ #top{
+	width:100%;
+	height:30px;
+	background-color:#F7F7F7;
+	line-height:30px;
+ } 
+ #top-box>img{
+ /* 上外边距、右外边距 */
+	margin-top:9px;
+	margin-right:10px;
+ }
+ #top-box>ul>li{
+	float:left;
+	margin-right:5px;
+ }
+ /* 列表项中的b标记，模拟分割线，（边框） */
+ #top-box>ul>li b{
+	border-left:1px solid #ddd;
+	margin-right:5px;
+ }
+/* 会员俱乐部：背景图像处理 */
+li.vip a{
+	/* 左内边距：（24+5），背景属性 */
+	padding-left:29px;
+	background:url(Images/vip.jpg) no-repeat left center;
+}
+/* 企业频道：背景图像处理 */
+li.dakehu a{
+	padding-left:26px;
+	background:url(Images/dakehu.jpg) no-repeat left center;
+}
+/* 手机京东：背景图像处理 */
+li.phone a{
+/* 左内边距，高度，行高，背景 */
+	display:inline-block;/* 为了配合高度的修改 */
+	padding-left:18px;
+	height:22px;
+	line-height:22px;
+	background:url(Images/iconlist_2.png) no-repeat -128px -360px;
+}
+li.phone a:hover{
+	background:url(Images/iconlist_2.png) no-repeat -128px -399px;
+}
+/* 客户服务 */
+li.service>a{
+	/* 左右内边距，模拟元素宽度 */
+	padding:0 15px;
+	/* 行内块，高度（26）、行高 */
+	display:inline-block;
+	height:26px;
+	line-height:26px;
+	/* 边框：左右上边框（透明） */
+	border:1px solid transparent;
+	border-bottom:0;
+	/* 背景 */
+	background:url(Images/jt_down.jpg) no-repeat 95% center;
+}
+/* 客户服务弹出菜单 */
+li.service{
+/* 相对定位：配合service做绝对定位 */
+	position:relative;
+}
+.service_items{
+/* 这一段很重要的！宽度、左右下边框、背景颜色 */
+	width:80px;
+	border:1px solid #ddd;
+	border-top:0;
+	box-sizing:border-box;
+	background-color:#FFF;
+	/* 水平居中对齐 */
+	text-align:center;
+	position:absolute;
+	top:28px;
+	left:6px;
+	/* 默认为隐藏 */
+	display:none;
+}
+li.service:hover .service_items{
+	display:block;
+	z-index:40;
+}
+li.service:hover>a{
+	/* 边框颜色、背景颜色为白色，更换背景图 */
+	border:1px solid #ddd;
+	background:#fff url(Images/jt_up.jpg) no-repeat 95% center;
+
+}
+
+/* 第一部分的效果结束 */
+
+#footer>span{
+	display:block;
+	margin:10px 0;
+	text-align:center;
+}
+#footer>p{
+	margin:2px 0;
+	text-align:center;
+}
+#footer>div{
+	margin:20px 0;
+	text-align:center;
+}
+#footer>div>img{
+	margin-right:10px;
+}
+	/* 搜索框效果实现 */
+
+#top-main{
+	padding:10px 0;/* 这里是由内边距实现的，没使用行高来居中 */
+	/* 这里不知道有多高就没设置高度，所以当里面元素都浮动起来的时候，他的高度就变为了0；解决方法最好是在里面包含一个空元素，空元素设置样式：清理它上面的浮动，这样此元素就有高度了 */
+}
+#search-box{
+	/* 左浮动、宽度、左右外边距 */
+	float:left;
+	width:500px;
+	margin:0 80px 0 40px;
+}
+#search-box div.search{
+	/* 宽度、高度、边框 背景颜色*/
+	width:100%;/* 可以省略 */
+	height:30px;
+	background-color:#E4393C;
+	/* 边框或内边距 */
+	padding:3px;
+	margin-bottom:5px;
+}
+#search-box input.txtSearch{
+	/* 宽度、高度、取消边框 */
+	width:410px;
+	height:30px;
+	border:0;
+	outline:0;
+}
+#search-box button{
+	/* 宽度、高度、取消边框、背景颜色、文字：大小，颜色，加粗 */
+	width:80px;
+	height:28px;/* 不能写为30，写为30时，左边的搜索框外边类似边框的东西就会变得上下不一样宽了 */
+	border:0;
+	background-color:#e4393c;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	cursor:pointer;
+}
+#search-box div.hot_words{
+	color:#999;
+	/* 写网页要考虑周全。为了处理溢出，加高度（这很重要给个约束的感觉），和溢出显示 */
+	height:16px;
+	overflow:hidden;
+}
+#search-box div.hot_words a{
+	color:#999;/* a元素不继承父级元素的样式 */
+}
+#my_jd{
+	/* 高度、宽度、背景、内边距、行高、左浮动*/
+	height:28px;
+	/* 总宽度=外边距+文本总宽度+小三角的宽度(以便正常显示三角)：12*4+5+10（我的京东与<b>元素中间也有一定的距离大概为5px,再给<b>右边与边框之间的距离给5px*/
+	width:65px;
+	padding-left:30px;
+	line-height:28px;
+	background:#F7F7F7 url(Images/iconlist_2.png) no-repeat -116px -25px;/* 先左右在上下 */
+	float:left;
+	border:1px solid #efefef;
+	margin-right:10px;
+	margin-top:6px;
+	}
+#my_jd:hover{
+	background-position:-116px -55px;
+	cursor:pointer;
+	background-color:#fff;
+}
+#my_jd b{
+	/* 边框：上边框有颜色，其他的为透明 */
+	border:5px solid transparent;
+	border-top-color:#CCC;
+	/* 让小边框向下移动，又因为是行内元素，margin对行内元素的上下没作用,这里采用相对定位实现位置的微调 */
+	position:relative;
+	top:11px;
+}
+#go_shop{
+	height:28px;
+	width:90px;
+	float:left;
+	padding-left:30px;
+	line-height:28px;
+	background:#F7F7F7 url(Images/iconlist_2.png) no-repeat -116px -85px;/* 先左右在上下 */
+	border:1px solid #efefef;
+	margin-top:6px;
+	z-index:10;
+}
+#go_shop:hover{
+	background-position:-116px -116px;
+	cursor:pointer;
+	background-color:#fff;
+	z-index:50;
+}
+#go_shop b{
+	/* 边框：上边框有颜色，其他的为透明 */
+	border:5px solid transparent;
+	border-top-color:#CCC;
+	/* 让小边框向下移动，又因为是行内元素，margin对行内元素的上下没作用,这里采用相对定位实现位置的微调 */
+	position:relative;
+	top:11px;
+}
+#nav{
+/* 高度、背景色 */
+	height:40px;
+	background-color:#E7424A;
+}
+#all_items{
+/* 宽度、高度、行高、背景颜色、字颜色、左内边距、字加粗 */
+	width:210px;
+	box-sizing:border-box;
+	background-color:#CC2A2E;
+	height:40px;
+	line-height:40px;
+	padding-left:20px;
+	float:left;
+}
+#all_items>a{
+	font-size:14px;
+	color:#fff;
+	font-weight:bold;
+	text-decoration:none;
+}
+#all_items b{
+/* 给上内边距和左边距把元素撑起来、微调元素、外右边距、背景。 */
+	padding-top:7px;
+	padding-left:9px;
+	position:relative;
+	top:16px;
+	background:url(Images/iconlist_1.png) no-repeat -268px -151px;
+	float:right;
+	margin-right:10px;
+}
+#nav_box li{
+	/*注意li只定义位置：左浮动*/
+	float:left;
+}
+#nav_box li>a{
+	/* 高度、行高、宽度（我觉得也可以用内边距实现,但用宽度做的更好一些）字体颜色、大小、加粗；左浮动（变成块级才能设置宽高）、水平居中对齐 */
+	height:40px;
+	line-height:40px;
+	width:100px;
+	color:#fff;
+	font-weight:bold;
+	font-size:14px;
+	float:left;
+	text-align:center;
+}
+#nav_box li>a:hover{
+	text-decoration:none;
+}
+#nav_box li:hover{
+	background-color:#BC2A2E;
+}
+#banner_box{
+	/* 宽度、高度、box-sizing、背景颜色、下左右边框、上内边距、右内边距、左浮动、定位 */
+	width:210px;
+	height:410px;
+	box-sizing:border-box;
+	background-color:#FAFAFA;
+	border:2px solid #E4393C;
+	border-top:0;
+	padding:5px 10px 0 0;
+	float:left;
+	position:relative;/* 配合#banner_images做绝对定位 */
+}
+#banner_box li{
+	/* 清除默认列表样式 */
+	list-style:none;
+}
+#banner_box>li>a{
+	/* 行高、上下边框、字：颜色、大小、左内边距、取消下划线、变成块级 */
+	display:block;
+	width:196px;
+	box-sizing:border-box;
+	padding:5px 0 5px 10px;/* 当不知道元素的高度时，又想让元素居中显示时，给元素设置上下相等的内边距 */
+	color:#333;
+	font-size:14px;
+	border-top:1px solid transparent;
+	border-bottom:1px solid #fff;
+}
+#banner_box li>a:hover{
+	/* 背景色、边框颜色 取消下划线、绝对定位、z-index*/
+	/* 相对定位来定义堆叠顺序 */
+	position:relative;/* 单纯的是为了堆叠顺序设置的定位方式 */
+	z-index:100;
+	text-decoration:none;
+	border-color:#E3DBE4;
+	background-color:#fff;
+}
+/* 子分类 */
+#banner_Images{
+	/* 高度、宽度、背景、边框、内边距、绝对定位、显示方法、显示方式*/
+	width:710px;
+	min-height:200px;/* 使高度自适应了 */
+	background-color:#fff;
+	border:1px solid #ddd;
+	padding:5px;
+	position:absolute;
+	left:195px;
+	top:2px;
+	z-index:1000;
+	display:none;隐藏弹出框}
+#banner_Images div.close{
+	/* 高度、宽度、背景颜色、边框倒角、文字颜色、文字大小、水平居中、行高、绝对定位。文字大小 */
+	height:20px;
+	width:20px;
+	background-color:#555;
+	color:#fff;
+	border-radius:50%;
+	text-align:center;
+	line-height:20px;
+	font-size:14px;
+	position:absolute;
+	right:-10px;
+	top:-10px;
+}
+#options{
+/* 	左浮动，宽度*/
+	float:left;
+	height:460px;
+}
+#options ul{
+	/* 宽度、高度、上下内边距、上边框*/
+/* 	min-width:460px;
+	height:20px;
+	 */	
+	overflow:hidden;/* 解决元素内部元素都浮动起来时，父级元素高度变为0。上面是另外一个解决方案，设置父元素的高度（比较麻烦） */
+	padding:3px 0px;
+	border-top:1px solid #F8F0FA;
+}
+#options ul>li.title{
+	/*宽度、文本右对齐、取消左边框、下划线、加粗、颜色 */
+	width:60px;
+	font-weight:bold;
+	text-align:right;
+	text-decoration:underline;
+	color:#FF0700;
+	border:0;
+}
+#options ul>li{
+	/* 高度、左边框、左浮动、左右内边距、行高 */
+	height:20px;
+	line-height:20px;
+	padding:0px 5px;
+	float:left;
+	border-left:1px solid #DCD5E2;
+}
+#options ul>li:hover{
+	/* 下划线 */
+	text-decoration:underline;
+}
+/* 点击时显示 */
+#banner_box li>a:hover #banner_Images{
+	display:block;
+	z-index:1000;
+}
+#little{
+	/* 宽度、最小高度、上左右外边距 右浮动*/
+	width:194px;
+	min-height:100px;
+	margin:5px 20px 0px 0px;
+	float:right;
+}
+#little img{
+	/* 上外边距 */
+	margin-top:5px;
+}
+#little h3{
+	/* 上外边距、字体颜色 */
+	margin-top:10px;
+	color:#DD3640;
+}
+#little li{
+	/* 上下内边距、字体颜色 */
+	padding-top:3px;
+	padding-bottom:3px;
+}
+#little li>a:hover{
+	color:#666;
+	text-decoration:underline;
+}
+/* ******中间的广告部分***** */
+img{
+	vertical-align:bottom;/* 解决图片的基线对齐 */
+}
+#slider_box{
+/* 宽度、高度、左浮动、上左外边距 */
+	width:670px;
+	height:400px;
+	float:left;
+	margin:10px 0px 0px 10px; 
+}
+#slider{
+	/* 宽度、高度 */
+	width:670px;
+	height:240px;
+		/* 相对定位 */
+	position:relative;
+
+}
+#slider>img{
+	/* 定位方式：绝对定位 、层叠顺序*/
+	position:absolute;
+	z-index:10;
+}
+#slider ul{
+	/* overflow、绝对定位、 */
+	position:absolute;
+	overflow:hidden;
+	bottom:15px;
+	right:20px;
+	z-index:100;
+}
+#slider ul>li{
+	/* 宽度、高度、边框倒角、背景颜色、字体颜色、字体大小、行高、水平居中、左外边距 */
+	width:20px;
+	height:20px;
+	border-radius:50%;
+	background-color:#3C3E3F;
+	color:#fff;
+	font-size:12px;
+	line-height:20px;
+	text-align:center;
+	margin-left:10px;
+	/* 左浮动、绝对定位、层叠顺序 */
+	float:left;
+}
+#slider ul>li:hover{
+	/* 背景颜色变换 */
+	background-color:#B31B21;
+	cursor:pointer;
+}
+#ad{
+	/* 下左右边框、宽度、高度、内边距 */
+	width:670px;
+	height:160px;
+	border:1px solid #ddd;
+	border-top:0;
+	box-sizing:border-box;
+}
+#ad a{
+	/* 上左内边距、垂直居中、背景图像 */
+	padding:35px 0px 0px 25px;
+	margin:62px 0px 0px 0px;
+	background:url(Images/index/ad-arraw.png) no-repeat 0px 0px;
+	/* 左浮动 */
+	float:left;
+}
+#ad a:hover{
+		background:url(Images/index/ad-arraw-hover.png) no-repeat 0px 0px;
+		cursor:pointer;
+}
+#ad a.next{
+	/* 上左内边距、垂直居中、背景图像 */
+	background:url(Images/index/ad-arraw.png) no-repeat 0px -35px;
+	/* 右浮动 */
+	float:right;
+}
+#ad a.next:hover{
+		background:url(Images/index/ad-arraw-hover.png) no-repeat 0px -35px;
+		cursor:pointer;
+}
+#ad ul>li{
+	/* 宽度、高度、左浮动、上下内边距、水平居中 */
+	width:205px;
+	padding:10px 0px;
+	float:left;
+	text-align:center;
+}
+#ad ul>li.li2{
+	/* 宽度、左右边框 */
+	width:206px;
+	border-left:1px solid #ddd;
+	border-right:1px solid #ddd;
+}
+#extra{
+	/* 宽度、高度、上外边距、右浮动 */
+	width:310px;
+	height:400px;
+	margin-top:10px;
+	float:right;
+}
+#news{
+	/* 宽度、右浮动、最小高度、上内边距 */
+	width:310px;
+	min-height:100px;
+	float:right;
+	padding-top:15px;
+}
+#news>b{
+	/* 字大小 */
+	font-size:16px;
+}
+#news>a{
+	/* 字体颜色 点击 */
+	font-size:14px;
+	color:005EA7;
+	cursor:pointer;
+	float:right;
+}
+#more_news{
+	/* 宽度、高度、上边框、上外边距、上内边距、右浮动 */
+	width:310px;
+	min-height:100px;
+	margin-top:6px;
+	border:1px solid #F1F1F1;
+	border-top:2px solid #AAAAAA;
+	/* float:right; */
+	padding-top:3px;
+	padding-bottom:3px;
+	box-sizing:border-box;
+}
+#more_news{
+	overflow:hidden;
+}
+#more_news li{
+	/* 宽度、字体大小、上内边距、左右内边距 */
+	width:154px;
+	font-size:13px;
+	padding:2px 0px 2px 8px;
+	box-sizing:border-box;
+	border-right:1px solid #F1F1F1;
+
+}
+#relatives{
+	/* 宽度、高度、下边框、溢出效果、上外边距 */
+	width:309px;
+	margin-top:8px;
+	margin-right:1px;
+	border-bottom:1px solid #F1F1F1;
+	border-right:1px solid #F1F1F1;
+	overflow:hidden;
+}
+#relatives li{
+	/* 宽度、高度、上下内边距、border-box,上左边框、左浮动*/
+	width:77px;
+	height:85px;
+	padding:10px 17px 5px 17px;
+	box-sizing:border-box;
+	border-top:1px solid #F1F1F1;
+	border-left:1px solid #F1F1F1;
+	float:left;
+}
+#relatives li>span{
+	/* 宽度、高度、背景、水平居中 */
+	display:block;
+	height:29px;
+	width:42px;
+	background:url(Images/index/virtuals-20140606.png) no-repeat;
+}
+#relatives li>a{
+	/* 水平居中、上外边距、字体大小*/
+	margin-top:11px;
+	font-size:13px;
+	text-align:center;
+	display:block;
+}
+#relatives li>b{
+	/* 边框、水平居中 */
+	width:0px;
+	height:0px;
+	border:3px solid #AAAAAA;
+	border-left:3px solid transparent;
+	border-right:3px solid transparent;
+	border-bottom:3px solid transparent;
+	display:block;
+	text-align:center;
+	margin:6px 18px; 
+}
+#relatives li.li_02>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -63px 0px;
+}
+#relatives li.li_03>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -126px 0px;
+}
+#relatives li.li_04>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -189px 0px;
+}
+#relatives li.li_05>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat 0px -50px;
+}
+#relatives li.li_06>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -63px -50px;
+}
+#relatives li.li_07{
+	padding:10px 18px 5px 18px;
+}
+#relatives li.li_07>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -127px -50px;
+	height:35px;
+	width:40px;
+}
+#relatives li.li_07>a{
+	margin-top:5px;
+}
+
+#relatives li.li_08>span{
+	background:url(Images/index/virtuals-20140606.png) no-repeat -189px -50px;
+}
+
+/* ******主体部分：生活的橱窗*****/
+#main{
+	/* overflow属性 */
+	overflow:hidden;
+	margin:10px auto;
+}
+#main>p{
+	/* 上下外边距、字体大小、加粗显示 */
+	padding-bottom:10px;
+	font-size:24px;
+	font-weight:bold;
+}
+#main>p>i{
+	/* 左内边距、字体大小 、文字样式*/
+	padding-left:10px;
+	font-size:16px;
+	font-weight:normal;
+	color:#999;
+}
+#main>ul{
+	overflow:hidden;
+}
+#main>ul>li{
+	/* 宽度、高度、背景、右外边距、下外边距、左浮动 */
+	margin-right:10px;
+	margin-bottom:10px;
+	width:295px;
+	height:190px;
+	float:left;
+	background:url(Images/index/show_01.jpg) no-repeat 0px 0px;
+	/* 相对定位配合div做绝对定位 */
+	position:relative;
+	/* 过渡、相应元素背景发生变化 */
+	transition:background 300ms linear/* （匀速） */;
+
+}
+#main>ul>li.no-margin{
+	/* 为多类选择器的其中一个类设置属性 */
+	margin-right:0;
+}
+#main>ul>li.show_02{
+	background:url(Images/index/show_02.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li.show_03{
+	background:url(Images/index/show_03.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li.show_04{
+	background:url(Images/index/show_04.png) no-repeat 0px 0px;	
+}
+#main>ul>li.show_05{
+	background:url(Images/index/show_05.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li.show_06{
+	background:url(Images/index/show_06.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li.show_07{
+	background:url(Images/index/show_07.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li.show_08{
+	background:url(Images/index/show_08.jpg) no-repeat 0px 0px;	
+}
+#main>ul>li:hover{
+	background-position:-10px 0px;
+}
+#main>ul>li>b{
+/* 	宽度、高度（用百分号表示即可）、透明度（遮罩层）、背景颜色、上内边距、左内边距 */	 display:block;
+	 width:45%;
+	 height:190px;
+	 background-color:#fff;
+	 opacity:0.7;
+}
+#main>ul>li>div{
+/* 	宽度、高度、绝对定位、位置、内边距 */
+	box-sizing:border-box;
+	position:absolute;
+	top:0px;
+	left:0px;
+/* 	这两个定义初始位置的一定要写，即使是零也要写。不写会出现错误，因为他自己不知道该定位到哪儿
+	 */	padding-top:35px;
+	padding-left:15px;
+	box-sizing:border-box;
+	background-color:transparent;
+	z-index:100;
+}
+#main li>div>b{
+/* 	文字大小、加粗 、显示方式 */	
+	font-size:17px;
+	font-weight:bold;
+	display:block;
+	color:#50504C;
+}
+#main li>div>span{
+/* 	上外边距、显示方式
+	 */	font-size:14px;
+	margin-top:2px;
+	display:block;
+	}
+#main li>div>h6{
+/* 上外边距、显示方式 */
+	font-size:13px;
+	margin-top:2px;
+	font-weight:normal;
+	color:#E4393C;
+	display:block;
+}
+#main li>div>ol{
+	/* 上外边距、文字大小、列表项标识*/
+	margin-top:15px;
+	font-size:12px;
+	list-style-type:disc;
+	margin-left:15px;
+
+}
+#main li>div>p{
+	/* 背景颜色、字体颜色、字体大小、内边距 */
+	background-color:#E4393C;
+	color:#fff;
+	font-size:13px;
+	padding:0px 1px;
+	display:inline-block;
+}
+#main li.show_04 p{
+	/* 上外边距、文字大小 */
+	margin-top:20px;
+	font-size:12px;
+	background-color:transparent;
+	color:#50504C;
+}
+#main li.show_04 p>b{
+	/* 文字大小、颜色 */
+	font-size:24px;
+	color:#E4393C;
+	font-weight:normal;
+}
+#main li.show_04 a{
+	display:block;
+	margin-top:5px;
+	height:32px;
+	width:72px;
+	background:url(Images/index/cantuan.png) no-repeat;
+}
+ #three{
+	height:70px;
+	overflow:hidden;
+}
+ #three>ul>li{
+	/* 左浮动 */
+	float:left;
+}
+#three>ul>li.mid{
+	/* 左右外边距 */
+	margin:0px 11.5px;
+}
+
+
+/* 家电通讯部分 */
+#content_01{
+	/* 宽度、最低高度、水平居中、上下外边距、下边框 */
+	width:1211px;
+	margin:6px auto;
+	border-bottom:1px solid #DFDFDF;
+}
+#content_01>header{
+	/* 高度、下边框 */
+	height:40px;/* 一般情况下是要加边框的 */
+	border-bottom:2px solid #AAAAAA;
+} 
+#content_01>header b{
+	/* 宽高、背景、文字大小、左浮动、行高、水平居中对齐、颜色*/
+	width:26px;
+	height:35px;
+	font-size:18px;
+	background:url(Images/index/index_iconlist_01.png) no-repeat 0px 0px;
+	line-height:35px;
+	text-align:center;
+	color:#fff;
+	float:left;
+}
+#content_01>header p{
+	/* 宽度、高度，文字大小、左外边距，左浮动 */
+	width:144px;
+	height:35px;
+	line-height:35px;
+	font-size:24px;
+	font-weight:bold;
+	margin-left:30px;
+	float:left;
+}
+#content_01>header ul{
+	/* 宽度、高度、左浮动 */
+	width:802px;
+	height:35px;
+	float:left;
+}
+#content_01>header li{
+	/* 宽度、高度、左浮动、文字大小、左右内边距、上内边距、box-sizing */
+	width:160.4px;
+	height:35px;
+	font-weight:bold;
+	font-size:13px;
+	padding:17px 52.2px 0px 52.2px;
+	box-sizing:border-box;
+	text-align:center;
+	float:left;
+	color:#666666;
+}
+#content_01>header li>a:hover{
+	font-size:14px;
+	text-decoration:none;
+	color:#666666;
+}
+#content_01>header span{
+	/* 只需要定位即可，所以给个浮动就可以了，关于对内容的样式应该写在最贴近内容的地方， */
+	float:right;
+}
+#content_01>header span>a{
+	/* 因为a本身是行内元素、高度、文字大小、颜色 */
+	height:35px;
+	padding:18px 0px 0px 10px;
+	box-sizing:border-box;
+	font-size:12px;
+	color:#005EA7;
+	/* 加了浮动之后变成块级元素，可以改宽和高。未设置宽度时，由内容决定宽度的大小 */
+	float:left;
+}
+#content_01>section{
+	/* 宽、高 */
+	width:1211px;
+	height:363px;
+}
+#content_01>section>#s_left{
+	/* 宽、高、右边框 上内边距 左浮动*/
+	width:201px;
+	height:363px;
+	padding-top:5px;
+	border-right:1px solid #F1F1F1;
+	box-sizing:border-box;
+	float:left;
+}
+#content_01>section>#s_left>ul{
+	/* 宽、高 */
+	width:200px;
+	height:208px;
+}
+#content_01>section>#s_left li{
+	/* 宽、高、左浮动、行高*/
+	width:100px;
+	height:26px;
+	float:left;
+	line-height:26px;
+}
+#content_01>section>#s_center{
+	/* 宽、高、左浮动 */
+	width:800px;
+	height:363px;
+	float:left;
+}
+#content_01>section>#s_center>ul{
+	/* 宽、高 */
+	width:800px;
+	height:363px;
+}
+#content_01>section>#s_center li{
+	/* 宽、高、右下边框 box-sizing、左浮动、上内边距、定位方式*/
+	width:160px;
+	height:181.5px;
+	box-sizing:border-box;
+	border-right:1px solid #F1F1F1;
+	padding-top:10px;
+	position:relative;
+	float:left;
+}
+#content_01>section>#s_center li>img{
+	/* 左外边距 */
+	margin-left:30px;
+}
+#content_01>section>#s_center li>span{
+	/* 上、下、左、右外边距 、显示方式、*/
+	margin:5px 15px 5px 8px;
+	display:inline-block;
+}
+#content_01>section>#s_center li>b{
+	/* 左外边距、颜色、定位方式、显示方式*/
+	margin-left:15px;
+	color:#E4393C;
+	font-weight:normal;
+	position:absolute;
+	bottom:10px;
+	left:0px;
+	display:inline-block;
+}
+
+#content_01>section>#s_center li.lf_ad{
+	border-bottom:1px solid #DDDDDD;	
+}
+#content_01>section>#s_center li.rg_ad{
+	border-bottom:1px solid #DDDDDD;	
+}
+#content_01>section>#s_center li.major_ad{
+	/* 	宽、高、右下边框、box-sizing */	
+	width:480px;
+	height:181.5px;
+	border-right:1px solid #F1F1F1;
+	border-bottom:1px solid #F1F1F1;
+	padding:0;
+	box-sizing:border-box;
+}
+#content_01>section>#s_center li.major_ad>img{
+	/* 宽、高 清除*/
+	width:479px;
+	height:180.5px;
+	margin:0;
+}
+#content_01>section>#s_right{
+	/* 宽、高、左浮动 */
+	width:210px;
+	height:363px;
+	float:left;
+}
+#content_01>section>#s_right>ul{
+	/* 宽、高 */
+	width:210px;
+	height:180.5px;
+}
+#content_01>section>#s_right li{
+	/* 宽、高、左浮动、上边框 */
+	width:105px;
+	height:35.1px;
+	float:left;
+	border-top:1px dotted #F1F1F1;
+	box-sizing:border-box;
+	padding-left:3.5px;
+}
+#content_01>section>#s_right>img{
+	/* 宽、高 */
+	width:210px;
+	height:182.5px;
+}
+/* 热门晒单部分 */
+
+#hot_sd{
+	/* 宽、高、上下左右边框 、内边距、上外边距、左浮动*/
+	width:881px;
+	height:211px;
+	border-top:2px solid #AAAAAA;
+	border-bottom:2px solid #DDDDDD;
+	border-left:1px solid #DDDDDD;
+	border-right:1px solid #DDDDDD;
+	padding:0px 8px 0px 8px;
+	margin-top:30px;
+	box-sizing:border-box;
+	float:left;
+}
+/* 左边部分 */
+div.shai_left{
+	/* 宽、高、上、下内边距、右边框 */
+	width:441px;
+	height:209px;
+	padding-top:10px;
+	border-right:2px solid #AAA;
+	box-sizing:border-box;
+	float:left;
+}
+div.shai_left>b{
+	/* 文字大小 */
+	font-size:14px;
+}
+div.shai_left li>p{
+	/* 宽、高、左外边距 */
+	width:60px;
+	height:60px;
+	margin-left:10px;
+	float:left;
+	position:relative;
+}
+div.shai_left li img{
+	/* 宽、高、左外边距 */
+	width:50px;
+	height:50px;
+}
+div.shai_left li i{
+	/* 宽、高、背景、定位方式 */
+	width:17px;
+	height:19px;
+	background:url(Images/iconlist_3.png) -200px -50px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+div.shai_left li>b{
+	/* 颜色、大小、浮动 、宽、高*/
+	width:331px;
+	color:#005EA7;
+	font-size:16px;
+	margin-bottom:8px;
+	font-weight:normal;
+	margin-left:10px;
+	float:left;
+}
+div.shai_left li>span{
+	/* 颜色、浮动、宽*/
+	width:331px;
+	color:#999999;
+	margin-left:10px;
+	float:left;
+}
+div.shai_left li.s_shang{
+	/* 宽、高、上下外边距、下边框 */
+	width:435px;
+	height:81px;
+	margin-top:10px;
+	border-bottom:1px dotted #CCCCCC;
+	box-sizing:border-box;
+}
+div.shai_left li.s_xia{
+	/* 宽、高、上下外边距、下边框 */
+	width:435px;
+	height:80px;
+	margin-top:10px;
+	box-sizing:border-box;
+}
+div.shai_left li.s_xia i{
+	/* 宽、高、背景、定位方式 */
+	width:19px;
+	height:18px;
+	background:url(Images/iconlist_3.png) -225px -50px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+/* 右边部分 */
+div.shai_right{
+	/* 宽、高、上、下内边距、右边框 */
+	width:422px;
+	height:209px;
+	padding-top:10px;
+	padding-left:8px;
+	box-sizing:border-box;
+	float:left;
+}
+div.shai_right>b{
+	/* 文字大小 */
+	font-size:14px;
+}
+div.shai_right li>p{
+	/* 宽、高、左外边距 */
+	width:60px;
+	height:60px;
+	margin-left:10px;
+	float:left;
+	position:relative;
+}
+div.shai_right li img{
+	/* 宽、高、左外边距 */
+	width:50px;
+	height:50px;
+}
+div.shai_right li i{
+	/* 宽、高、背景、定位方式 */
+	width:17px;
+	height:19px;
+	background:url(Images/iconlist_3.png) -200px -50px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+div.shai_right li>b{
+	/* 颜色、大小、浮动 、宽、高*/
+	width:331px;
+	color:#005EA7;
+	font-size:16px;
+	margin-bottom:8px;
+	font-weight:normal;
+	margin-left:10px;
+	float:left;
+}
+div.shai_right li>span{
+	/* 颜色、浮动、宽*/
+	width:331px;
+	color:#999999;
+	margin-left:10px;
+	float:left;
+}
+div.shai_right li.s_shang{
+	/* 宽、高、上下外边距、下边框 */
+	width:418px;
+	height:81px;
+	margin-top:10px;
+	border-bottom:1px dotted #CCCCCC;
+	box-sizing:border-box;
+}
+div.shai_right li.s_xia{
+	/* 宽、高、上下外边距、下边框 */
+	width:435px;
+	height:80px;
+	margin-top:10px;
+	box-sizing:border-box;
+}
+div.shai_right li.s_xia i{
+	/* 宽、高、背景、定位方式 */
+	width:19px;
+	height:18px;
+	background:url(Images/iconlist_3.png) -225px -50px;
+	position:absolute;
+	right:0;
+	top:0;
+}
+
+div#r_online{
+	/* 宽、高、左外边距、上外边距、上、下、左、右边框、浮动 */
+	width:320px;
+	height:150px;
+	margin-top:30px;
+	margin-left:10px;
+	border-top:2px solid #CCCCCC;
+	border-bottom:1px solid #DDDDDD;
+	border-left:1px solid #DDDDDD;
+	border-right:1px solid #DDDDDD;
+	float:left;
+	box-sizing:border-box;
+}
+div#r_online>b{
+	/* 宽度、高度、上、下外边距 左外边距 */
+	width:200px;
+	height:15px;
+	margin-top:8px;
+	margin-left:7px;
+	margin-bottom:10px;
+	float:left;
+}
+div#r_online>a{
+	/* 宽度、高度、颜色、右浮动、上、下外边距 */
+	width:100px;
+	height:15px;
+	color:#375EA7;
+	margin-top:8px;
+	margin-bottom:15px;
+	margin-right:7px;
+	float:right;
+}
+div#r_online>img{
+	/* 左外边距、右外边距、左浮动 */
+	margin-left:7px;
+	margin-right:5px;
+	float:left;
+}
+div#r_online>ul{
+	/* 样式 */
+	list-style:disc inside;
+}
+div#r_online li{
+	/* 左内边距、下内边距、 宽、高、颜色、左浮动 */
+	padding-left:5px;
+	padding-bottom:8px;
+	width:200px;
+	height:15px;
+	color:#375EA7;
+	float:left;
+}
+div#r_online li>a{
+	/* 左内边距、下内边距、 宽、高、颜色、左浮动 */
+	color:#375EA7;
+}
+div#r_search{
+	/* 宽、高、上外边距、浮动 */
+	width:320px;
+	height:53px;
+	margin-top:8px;
+	margin-left:10px;
+	box-sizing:border-box;
+	float:left;
+}
+div#r_search>b{
+	/* 左浮动、文字大小 */
+	float:left;
+	font-size:16px;
+}
+div#r_search>input.Email{
+	/* 宽、高、上外边距、边框 */
+	height:30px;
+	width:260px;
+	margin-top:2px;
+	border-top:1px solid #676767;
+	border-left:1px solid #676767;
+	border-right:1px solid #EAEAEA;
+	border-bottom:1px solid #EAEAEA;
+	padding-left:28px;
+	background:url(Images/index/email.gif) no-repeat 5px center;/* 小信封是背景，用背景来做就可以了 */
+	outline:none;/* 消除点击时的外围边框 */
+}
+div#r_search>button.sub{
+	/* 宽、高、背景色、文字加粗、文字颜色、边框倒角 */
+	width:55px;
+	height:28px;
+	background-color:#E4393C;
+	color:#fff;
+	font-size:16px;
+	font-weight:bold;
+	border-radius:10%;
+	border-color:transparent;
+}
+
+/* 页面底部-购物指南 */
+footer#foot-box{
+	/* 宽、高、上、下外边距、上下边框 */
+	width:1211px;
+	height:200px;
+	margin:20px auto;
+	border-top:1px solid #DDDDDD;
+	border-bottom:1px solid #DDD;
+	box-sizing:border-box;
+}
+footer#foot-box>div{
+	/* 宽度、高度、左浮动、上内边距左内边距 */
+	width:242px;
+	height:200px;
+	padding-top:10px;
+	padding-left:80px;
+	float:left;
+	box-sizing:border-box;
+}
+footer#foot-box>div>img{
+	/* 宽度、高度、左浮动 、右外边距*/
+	width:33px;
+	height:33px;
+	float:left;
+	margin-right:8px;
+}
+footer#foot-box>div>ul{
+	/* 宽度、最低高度、左内边距 */
+	width:100px;
+	min-height:100px;
+	padding-left:45px;
+}
+footer#foot-box>div li{
+	/* 宽度、高度、行高 */
+	width:100px;
+	height:12px;
+	line-height:12px;
+}
+footer#foot-box>div li.head{
+	/* 下外边距、加粗 */
+	margin-bottom:3px;
+	font-weight:bold;
+}
