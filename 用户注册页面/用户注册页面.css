@@ -1,0 +1,54 @@
+@charset "UTF-8";
+/**
+ * 
+ * @authors Your Name (you@example.org)
+ * @date    2018-04-07 14:38:49
+ * @version $Id$
+ */
+p{margin:0;}
+#d1{
+	/* 宽高、margin */
+	width:600px;min-height:400px;
+	margin:200px auto;
+}
+#d1>p{
+	/* 宽高、文字大小、水平居中、行高 */
+	width:600px;height:50px;
+	font-size:30px;
+	line-height:50px;
+	text-align:center;
+}
+#d1>form{
+	/* 宽、高、边框、上内边距、box-sizing、文字对齐方式 */
+	width:600px;height:350px;
+	box-sizing:border-box;
+	padding-top:20px;
+	padding-bottom:15px;
+	border:1px solid #aaa;
+	border-radius:4px;
+	/* text-align:left; */
+}
+#d1>form b{
+	/* 宽、高、行高、右对齐 显示方式*/
+	width:60px;height:40px;
+	font-size:13px;
+	line-height:40px;
+	text-align:right;
+	display:inline-block;
+}
+#d1>form>input,#d1>form>button{
+	/* 宽、高、外边距 */
+	width:250px;height:30px;
+	margin:7px 10px 8px 20px;
+	border-radius:4px;
+	box-sizing:border-box;
+	border:1px solid #aaa;
+}
+#d1>form>button{
+	/* 左外边距、背景色、文字颜色 */
+	margin-left:84px;
+	background:green;
+	color:#fff;
+	padding:0;
+	border:0;
+}

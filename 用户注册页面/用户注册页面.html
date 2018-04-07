@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="用户注册页面.css" rel="stylesheet">
+	</head>
+	<body>
+	    <div id="d1">
+	    	<p>用户注册界面</p>
+	    	<form action="">
+	    		<!-- 注意：h5里面标签的写法为：<lable for="?"></lable>
+	    								  <input id="?" type="text">
+	    								  <span></span> -->
+	    		<b>用户名:</b>
+	    		<input type="text" id="username" name="username" placeholder="请输入用户名" required autocomplete="off" minlength="3" maxlength="6"><span></span><br>
+	    		<b>密码:</b>
+	    		<input type="password" id="password" name="password" placeholder="请输入密码" required minlenth="6" maxlength="12" autocomplete="off"><span></span><br>
+	    		<b>电子邮件:</b>
+	    		<input type="email" id="em" name="email" placeholder="请输入电子邮件" required autocomplete="off"><span></span><br>
+	    		<b>个人主页:</b>
+	    		<input type="url" id="url" name="url" placeholder="请输入个人主页" required autocomplete="off"><span></span><br>
+	    		<b>年龄:</b>
+	    		<input type="number" id="age" name="age" placeholder="请输入年龄" required min="18" max="60" autocomplete="off"><span></span><br>
+	    		<b>出生日期:</b>
+	    		<input type="date" name="email" autocomplete="off"><span></span><br>
+	    		<button>注册</button>
+	    	</form>
+	    </div>
+	    <script>
+	    	document.getElementById("username").onblur=function(){
+	    		//先判断对象里的属性！
+	    		if(this.validity.valueMissing){
+	    			var msg="用户名不能为空"	
+	    		}else if(this.validity.tooShort){
+	    			var msg="用户名不能短于3位"
+	    		}
+	    		else if(this.validity.tooLong){
+	    			var msg="用户名不能超过6位"
+	    		}else{
+	    			var msg="";
+	    		}
+	    		this.nextElementSibling.innerHTML=msg;
+	    		this.setCustomValidity(msg);
+	    		if(msg.length!=0){
+	    			this.nextElementSibling.style.color="red";
+	    		}
+	    	}
+
+	    </script>
+	</body>
+</html>
