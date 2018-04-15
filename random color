@@ -1,0 +1,7 @@
+//随机生成浅色
+function pColor(){
+			var r=parseInt(155+(Math.random()*100));
+			var g=parseInt(155+(Math.random()*100));
+			var b=parseInt(155+(Math.random()*100));
+			return `rgb(${r},${g},${b})`;//关键步骤
+		}
