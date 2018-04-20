@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>demo</title>
+		<meta name="description" content="">
+		<meta name="keywords" content="">
+		<link href="" rel="stylesheet">
+		<style>
+			body{
+				text-align: center;
+			}
+			.half-opacity{
+				opacity: .3;
+			}
+		</style>
+	</head>
+	<body>
+	    <img id="trash" class="half-opacity" src="img/p0.png">
+	    <div id="container">
+	    	<img id="p3" src="img/p3.png">
+	    	<img id="p4" src="img/p4.png">
+	    	<img id="p5" src="img/p5.png">
+	    </div>
+	    <script>
+	    	//获得目标源飞机
+	    	var list=container.getElementsByTagName("img");
+	    	for(var i=0;i<list.length;i++){
+	    		var p=list[i];
+	    		p.ondragstart=function(e){
+	    			var me=this;
+	    			e.dataTransfer.setData('aimId',me.id);
+	    		}
+	    	}
+	    	//目标对象的API
+	    	trash.ondragenter=function(e){
+	    		trash.className="";//移除属性
+	    	}
+	    	trash.ondragover=function(e){
+	    		e.preventDefault();
+	    	}
+	    	trash.ondragleave=function(e){
+	    		trash.className="half-opacity";
+	    	}
+	    	trash.ondrop=function(e){
+	    		var id=e.dataTransfer.getData('aimId');
+	    		console.log(id);
+	    		console.log(this.src);
+	    		if(this.src!='file:///D:/360Downloads/httpd-2.4.27-Win64-VC15/Apache24/htdocs/h5/img/p0.png'){
+	    			var img=document.createElement('img');
+	    			var id1=this.src.slice(-6,-4);
+	    			// console.log(id);
+	    			img.id=id1;
+	    			img.src='img/'+id1+'.png';
+	    			container.appendChild(img);
+	    			console.log(container);
+	    			console.log(trash);
+	    		}
+	    		this.src='img/'+id+'.png';
+	    		var img=document.getElementById(id);
+	    		container.removeChild(img);
+	    	}
+	    </script>
+	</body>
+</html>
