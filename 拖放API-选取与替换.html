@@ -13,53 +13,95 @@
 			.half-opacity{
 				opacity: .3;
 			}
+			#chosen{
+				border: 1px solid #000;
+				border-radius: 5px;
+				padding: 10px;
+				margin: 50px auto;
+				width: 220px;
+			}
 		</style>
 	</head>
 	<body>
-	    <img id="trash" class="half-opacity" src="img/p0.png">
+		<!-- chosen是目标对象，不能是imgp0 p0在操作时不能被删除，只要看不出来，且不占据页面空间就行**** -->
+		<div id="chosen">
+	    	<img id="p0" class="half-opacity" src="img/p0.png">
+	    </div>
 	    <div id="container">
 	    	<img id="p3" src="img/p3.png">
 	    	<img id="p4" src="img/p4.png">
 	    	<img id="p5" src="img/p5.png">
 	    </div>
 	    <script>
-	    	//获得目标源飞机
+	    	//获得目标源飞机：虽然这里的子元素都是绑定相同的事件，但是这里把事件绑定在元素本身上，不依赖父元素冒泡，脱离父元素，依旧绑定了这个事件
 	    	var list=container.getElementsByTagName("img");
 	    	for(var i=0;i<list.length;i++){
 	    		var p=list[i];
 	    		p.ondragstart=function(e){
-	    			var me=this;
-	    			e.dataTransfer.setData('aimId',me.id);
+	    			//记录拖动的源对象的ID，传递给目标对象上的事件
+	    			e.dataTransfer.setData('aimId',this.id);
 	    		}
 	    	}
-	    	//目标对象的API
-	    	trash.ondragenter=function(e){
-	    		trash.className="";//移除属性
+		/*拖动开始事件绑定到父元素上，执行将选取的元素拖动到被选区时，Uncaught TypeError: Failed to execute 'appendChild' on 'Node': parameter 1 is not of type 'Node'.
+    at HTMLDivElement.container.ondrop*/
+		// container.ondragstart=function(e){
+	    	// 	e.dataTransfer.setData("aimId",e.target.id)
+	    	// }
+	    	//目标对象：chosen
+	    	chosen.ondragenter=function(e){
+	    		p0.className="";//移除属性
 	    	}
-	    	trash.ondragover=function(e){
+	    	chosen.ondragover=function(e){
+	    		p0.className="";
 	    		e.preventDefault();
 	    	}
-	    	trash.ondragleave=function(e){
-	    		trash.className="half-opacity";
+	    	chosen.ondragleave=function(e){
+	    		p0.className="half-opacity";
 	    	}
-	    	trash.ondrop=function(e){
-	    		var id=e.dataTransfer.getData('aimId');
-	    		console.log(id);
-	    		console.log(this.src);
-	    		if(this.src!='file:///D:/360Downloads/httpd-2.4.27-Win64-VC15/Apache24/htdocs/h5/img/p0.png'){
-	    			var img=document.createElement('img');
-	    			var id1=this.src.slice(-6,-4);
-	    			// console.log(id);
-	    			img.id=id1;
-	    			img.src='img/'+id1+'.png';
-	    			container.appendChild(img);
-	    			console.log(container);
-	    			console.log(trash);
+	    	chosen.ondrop=function(e){
+	    		//隐藏问好飞机
+	    		p0.style.display="none";
+
+	    		//检查除了p0之外是否还有其他的飞机
+	    		if((chosen.children.length)>1){
+	    			container.appendChild(p0.nextElementSibling);
 	    		}
-	    		this.src='img/'+id+'.png';
+	    		var id=e.dataTransfer.getData('aimId');
 	    		var img=document.getElementById(id);
-	    		container.removeChild(img);
+	    		chosen.appendChild(img);//注意这里给chosen添加了container的子元素，那么container中就没有这个子元素了，所有节点都是一个对象，解决方法：复制一份添加到chosen中
+
+
+	    		//自己写的错误代码：删除了元素，循环一轮之后出现了bug
+	    		// if(this.src!='file:///D:/360Downloads/httpd-2.4.27-Win64-VC15/Apache24/htdocs/h5/img/p0.png'){
+	    		// 	var img=document.createElement('img');
+	    		// 	var id1=this.src.slice(-6,-4);
+	    		// 	// console.log(id);
+	    		// 	img.id=id1;
+	    		// 	img.src='img/'+id1+'.png';
+	    		// 	container.appendChild(img);
+	    		// 	console.log(container);
+	    		// 	console.log(trash);
+	    		// }
+	    		// this.src='img/'+id+'.png';
+	    		// container.removeChild(img);
+	    		
+
+
+	    		//目标对象：container
+	    		container.ondragover=function(e){
+	    			e.preventDefault();
+	    		}
+	    		container.ondrop=function(e){
+	    			//把被拖动的飞机放到列表中
+	    			var id=id=e.dataTransfer.getData('aimId');
+	    			var img=document.getElementById(id);
+	    			container.appendChild(img);
+
+	    			//让p0显示
+	    			p0.style.display="block";
+	    		}
 	    	}
+		//在做DOM操作时，不要去删除一个元素。
 	    </script>
 	</body>
 </html>
