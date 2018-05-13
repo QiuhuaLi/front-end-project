@@ -42,7 +42,7 @@ class circle{
             this.drawText(percent, lastPercent);
         },10)
     }
-    //画里面的白色图
+    //画里面的白色圆
     drawInside(){
         this.ctx.beginPath();
         this.ctx.moveTo(100,100);
@@ -51,7 +51,7 @@ class circle{
         this.ctx.fillStyle='#fff';
         this.ctx.fill();
     }
-    //在白色图中写字
+    //在白色圆中显示百分比
     drawText(percent, lastPercent){
         this.ctx.font = "20px Georgia";
         this.ctx.fillStyle='#5E97F6';
