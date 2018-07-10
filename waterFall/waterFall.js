@@ -1,5 +1,49 @@
 window.onload=function(){
-	waterFall("main","box");//传入包含瀑布流的大盒子的id和瀑布流中每个小盒子的className
+	var Datas={
+		'data':[{'src':'1.jpg'},{"src":'2.jpg'},{"src":'3.jpg'},{"src":'4.jpg'},{"src":'5.jpg'},{"src":'6.jpg'},{"src":'7.jpg'},{"src":'8.jpg'},{"src":'9.jpg'}]
+	};
+	if(checkSlider){
+			//滚动生成图片
+			var bigBox=document.getElementById("main");
+			var fragment=document.createDocumentFragment();
+			for(var i=0;i<Datas.data.length;i++){
+				var div1=document.createElement("div");
+				div1.className="box";
+				fragment.appendChild(div1);
+				var div2=document.createElement("div");
+				div2.className="pic";
+				div1.appendChild(div2);
+				var image=document.createElement("img");
+				image.src="pictures/"+Datas.data[i].src;
+				div2.appendChild(image);
+			}
+			bigBox.appendChild(fragment);
+			// console.log("1");
+		 }
+		 waterFall("main","box");//传入包含瀑布流的大盒子的id和瀑布流中每个小盒子的className
+	//给页面滚动绑定事件
+	window.onscroll=function(){
+		//调用checkSlider函数判断是否具有可滑动的条件
+		if(checkSlider){
+			//滚动生成图片
+			var bigBox=document.getElementById("main");
+			var fragment=document.createDocumentFragment();
+			for(var i=0;i<Datas.data.length;i++){
+				var div1=document.createElement("div");
+				div1.className="box";
+				fragment.appendChild(div1);
+				var div2=document.createElement("div");
+				div2.className="pic";
+				div1.appendChild(div2);
+				var image=document.createElement("img");
+				image.src="pictures/"+Datas.data[i].src;
+				div2.appendChild(image);
+			}
+			bigBox.appendChild(fragment);
+			// console.log("1");
+		 }
+		 waterFall("main","box");//传入包含瀑布流的大盒子的id和瀑布流中每个小盒子的className
+	}
 }
 function waterFall(parent,box){
 	var bigBox=document.getElementById(parent);
@@ -12,7 +56,7 @@ function waterFall(parent,box){
 	var nArr=[];//存放每行盒子的高度
 	bigBox.style.width=boxWidth*num+'px';
 	bigBox.style.margin="0 auto";
-	for(var i=0;i<littleBox.length;i++){
+	for(var i=0,len=littleBox.length;i<len;i++){
 		if(i<num){
 			nArr.push(littleBox[i].offsetHeight);//在页面中每个元素的高度是存放在offsetHeight属性当中的
 		}else{
@@ -35,3 +79,29 @@ function foundIndex(arr,index){
 		}
 	}
 }
+function checkSlider(){
+	var bigBox=document.getElementById("main");
+	var littleBox=bigBox.getElementsByClassName("box");
+	var lastBox=littleBox[littleBox.length-1];
+	var boxToTop=lastBox.offsetTop+lastBox.offsetHeight/2;
+	// console.log(boxToTop);
+	// 在考虑模式兼容的情况下得出现在页面已加载的高度。
+	var scrollLength=(document.body.scrollTop||document.documentElement.scrollTop)+(document.body.clientHeight||document.documentElement.clientHeight);
+	// console.log(scrollLength);
+	return boxToTop<scrollLength?true:false;
+}
+// function addPictures(){
+	// var bigBox=document.getElementById("main");
+	// var fragment=document.createDocumentFragment();
+	// for(var i=0;i<Datas.data.length-1;i++){
+	// 	var div1=document.createElement("div");
+	// 	div.className="box";
+	// 	fragment.appendChild(div1);
+	// 	var div2=document.createElement("div");
+	// 	div2.className="pic";
+	// 	div1.appendChild(div2);
+	// 	var image=document.createElement("img");
+	// 	iamge.src=`pictures/${Datas.data[i].src}`;
+	// }
+	// bigBox.appendChild(fragment);
+// }
