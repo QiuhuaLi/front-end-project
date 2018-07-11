@@ -2,6 +2,8 @@ window.onload=function(){
 	var Datas={
 		'data':[{'src':'1.jpg'},{"src":'2.jpg'},{"src":'3.jpg'},{"src":'4.jpg'},{"src":'5.jpg'},{"src":'6.jpg'},{"src":'7.jpg'},{"src":'8.jpg'},{"src":'9.jpg'}]
 	};
+	var num=0;//记录滚动加载数据的次数
+	//在开始添加这个判断是为了填充页面，因为我准备的图片不足，在正常情况下是不用添加的。
 	if(checkSlider){
 			//滚动生成图片
 			var bigBox=document.getElementById("main");
@@ -21,10 +23,11 @@ window.onload=function(){
 			// console.log("1");
 		 }
 		 waterFall("main","box");//传入包含瀑布流的大盒子的id和瀑布流中每个小盒子的className
-	//给页面滚动绑定事件
+	//给页面滚动绑定事件函数，滚动时动态加载图片。
 	window.onscroll=function(){
 		//调用checkSlider函数判断是否具有可滑动的条件
-		if(checkSlider){
+		num=num+1;
+		if(checkSlider&&num<3){
 			//滚动生成图片
 			var bigBox=document.getElementById("main");
 			var fragment=document.createDocumentFragment();
@@ -44,11 +47,12 @@ window.onload=function(){
 		 }
 		 waterFall("main","box");//传入包含瀑布流的大盒子的id和瀑布流中每个小盒子的className
 	}
+	console.log(num);
 }
+//确定每行显示多少列，并且使包含瀑布流的块级元素居中显示。然后使图片按照瀑布流的样式排列起来，
 function waterFall(parent,box){
 	var bigBox=document.getElementById(parent);
 	var littleBox=bigBox.getElementsByClassName(box);
-	// console.log(littleBox.length)
 	//算出一行多少列
 	var screenWidth=document.documentElement.clientWidth;//获得页面视口的大小
 	var boxWidth=littleBox[0].offsetWidth;//存放一个盒子的宽度
@@ -90,18 +94,3 @@ function checkSlider(){
 	// console.log(scrollLength);
 	return boxToTop<scrollLength?true:false;
 }
-// function addPictures(){
-	// var bigBox=document.getElementById("main");
-	// var fragment=document.createDocumentFragment();
-	// for(var i=0;i<Datas.data.length-1;i++){
-	// 	var div1=document.createElement("div");
-	// 	div.className="box";
-	// 	fragment.appendChild(div1);
-	// 	var div2=document.createElement("div");
-	// 	div2.className="pic";
-	// 	div1.appendChild(div2);
-	// 	var image=document.createElement("img");
-	// 	iamge.src=`pictures/${Datas.data[i].src}`;
-	// }
-	// bigBox.appendChild(fragment);
-// }

@@ -4,7 +4,12 @@
 }
 #main{
 	position: relative;
-}
+	/* 使用css3多栏布局来实现瀑布流 */
+	/* 因为有csshack的存在，所以使用相应的属性时要加内核前缀 */
+	/* -webkit-column-count: 5;
+	-o-column-count:5 ;
+	-es-column-count: 5;
+ */}
 .box{
 	float: left;
 	padding: 15px 0 0 15px;
