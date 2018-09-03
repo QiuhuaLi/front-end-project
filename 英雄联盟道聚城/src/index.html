@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>英雄联盟</title>
+    </head>
+    <body>
+		<script>
+			(function(){
+				let deviceWidth=window.innerWidth;
+				if(deviceWidth>640){
+					window.open("./pc.html","_self");
+				}else{
+					window.open("./mobile.html","_self");
+				}
+			})();
+		</script>
+    </body>
+</html>

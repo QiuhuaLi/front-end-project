@@ -1,0 +1,228 @@
+html{
+	font-size: 20px;
+}
+
+/**顶部banner样式**/
+h2{
+	width: 100%;
+	height: 4rem;
+	line-height: 4rem;
+	text-align: center;
+	color: #fff;
+	background-color: #05171E;
+}
+div.container{
+	width: 100%;
+	background: url(../pic/mobile/bgp.png);
+	background-size: cover;
+}
+div.container>header{
+	width: 100%;
+	height: 5.5rem;
+	line-height: 5.5rem;
+	padding: 0 0.5rem;
+	box-sizing: border-box;
+	position: relative;
+}
+div.container>header>div.left{
+	height: 4.4rem;
+	position: absolute;
+	top: 50%;
+	left: 0.5rem;
+	transform: translateY(-50%);
+}
+div.container>header>div.hide{
+	opacity: 0;
+}
+/**动画样式**/
+div.container>header>div.show{
+	opacity: 1;
+	transition: all 10s ease-in;
+}
+
+div.container>header>div.left p{
+	text-align: left;
+}
+div.container>header img.head{
+	width: 4.3rem;
+	height: 4.4rem;
+}
+div.container>header div.message{
+	padding-left: 0.2rem;
+	padding-right: 0.2rem;
+}
+div.container>header p.name{
+	height: 1.5rem;
+	line-height: 1.5rem;
+	font-size: 1rem;
+	color: #fff;
+}
+div.container>header p.score{
+	height: 2rem;
+	line-height: 2rem;
+	font-size: 3rem;
+	font-weight: bold;
+	color: #FFFC00;
+}
+div.container>header>div.right{
+	height: 4.4rem;
+	position: absolute;
+	top: 50%;
+	right: 0.5rem;
+	transform: translateY(-50%);
+}
+div.container>header>div.right p{
+	text-align: right;
+}
+div.container>header>.center{
+	width: 5.5rem;
+	height: 5.2rem;
+	margin: 0 auto;
+	position: relative;
+}
+div.container>header>.center{
+
+}
+div.container>header>.center>img{
+	width: 5.5rem;
+	height: 5.2rem;
+}
+div.container>header>.center>span{
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	font-size: 1.2rem;
+	color: #fff;
+	position: absolute;
+	top: -1.5rem;
+	left: 0;
+}
+div.container>header>.center>span>b{
+	color: #FFFF00;
+}
+/**答题区**/
+div.container>section{
+	width: 100%;
+	position:relative;
+}
+div.container>section>div.title{
+	height: 13rem;
+	padding-top: 3.5rem;
+	padding-left: 4rem;
+	font-size: 1.5rem;
+	color: #fff;
+	box-sizing:border-box;
+	/* font-weight: bold; */
+}
+div.container>section>div.title>p.topic{
+	margin-bottom: 2rem;
+	font-size: 1.5rem;
+}
+div.container>section>div.title>p.chioce{
+	padding-left: 3rem;
+}
+div.container>section>div.title>p.A>b{
+	color:#90D829 ;
+}
+div.container>section>div.title>p.B>b{
+	color: #6EB6FD;
+}
+/**提示性消息**/
+div.container>section>div.progress{
+	height: 5rem;
+	padding:1rem 0.5rem;
+}
+div.container>section>div.progress>.time{
+	padding: 0 2rem;
+	border-right: 1px solid #FE5223;
+	color: #fff;
+}
+div.container>section>div.progress>.time .proA{
+	display: inline-block;
+	width: 8rem;
+	height: 0.8rem;
+	border-radius: 0.2rem;
+	background-color: #C9522C;
+	position: relative;
+}
+div.container>section>div.progress>.time .proA>.proB{
+	display: inline-block;
+	width: 3rem;
+	height: 0.8rem;
+	border-radius: 0.2rem;
+	background-color: #FFFE1C;
+	position: absolute;
+	top: 0;
+}
+div.container>section>div.progress>.time b{
+	font-size: 2rem;
+	font-weight: normal;
+}
+div.container>section>div.progress>.time span.miao{
+	vertical-align: top;
+}
+div.container>section>div.progress>.timen p{
+	
+}
+div.container>section>div.progress>.nowScore{
+	padding-right: 1.5rem;
+	text-align: center;
+	color: #fff;
+	font-size: 1rem;
+}
+div.container>section>div.progress>.nowScore>.num{
+	font-size: 2rem;
+	font-weight: normal;
+}
+/**A&B**/
+.choose_item{
+	width: 100%;
+	padding:0 0.5rem;
+	box-sizing: border-box;
+	text-align: center;
+	background: #EEEEEE;
+	height: 15rem;
+}
+.choose_item>a{
+    display: inline-block;
+    font-size: 5rem;
+	font-weight: bold;
+	color: #fff; 
+	width: 11.7rem;
+	height: 9rem;
+	border-radius: 5px;
+}
+.choose_item>a>span{
+    display: inline-block;
+    text-align: center;
+	width: 11.7rem;
+	height: 8.5rem;
+	line-height: 8.5rem;
+	border-radius: 5px;
+}
+.choose_item>a.choose_a{
+	background: #61A81D;
+	margin-right: 1rem;
+}
+.choose_item>a.choose_a>span{
+	background: #91D929;
+}
+.choose_item>a.choose_b{
+	background: #538ED5;
+}
+.choose_item>a.choose_b>span{
+	background: #6EB6FD;
+}
+
+
+/***媒体查询***/
+@media only screen and (max-width:40rem){
+	html{
+		font-size: 16px;
+	}
+}
+@media only screen and (max-width:24rem){
+	html{
+		font-size: 14px;
+	}
+}

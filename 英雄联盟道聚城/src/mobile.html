@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="Content-Type" content="text/html" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <title>答题区</title>
+        <link rel="stylesheet" href="./css/nomalize.css">
+        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet" href="./css/mobile.css">
+    </head>
+    <body>
+        <h2>英雄联盟知识学院</h2>
+        <div class="container">
+            <header>
+                <div class="left">
+                    <img class="head pull-left" src="./pic/mobile/slgd.png" alt="head1">
+                    <div class="message pull-left">
+                        <p class="name">帅了个呆</p>
+                        <p class="score">28</p>
+                    </div>
+                </div>
+                <div class="right">
+                    <img class="head pull-right" src="./pic/mobile/jmrx.png" alt="head1">
+                    <div class="message pull-right">
+                        <p class="name">寂寞如雪</p>
+                        <p class="score">86</p>
+                    </div>
+                </div>
+                <div class="center"><img src="./pic/mobile/vs.png" alt="vs"><span>第<b>17</b>题</span></div>
+            </header>
+            <section>
+                <div class="title">
+                    <p class="topic">提莫几级可以种蘑菇？</p>
+                    <p class="chioce A"><b>A:</b>1级</p>
+                    <p class="chioce B"><b>B:</b>6级</p>
+                </div>
+                <div class="progress clear">
+                    <div class="time pull-left">
+                        <span class="proA">
+                            <span class="proB"></span>
+                        </span>
+                        <b>36</b>
+                        <span class="miao">秒</span>
+                        <p>本题剩余时间，加油啊！</p>
+                    </div>
+                    <div class="nowScore pull-right">
+                        <span class="num">1021</span>
+                        <p>当前已修学分</p>
+                    </div>
+                </div>
+            </section>
+        </div>
+        <div class="choose_item clear">
+            <a href="#" class="choose_a pull-left"><span>A</span></a>
+            <a href="#" class="choose_b pull-left"><span>B</span></a>
+        </div>
+        <script>
+            (function(){
+                window.onload=function(){
+                    let head=document.querySelectorAll("header>div");
+                    // head[0].setAttribute("class","show");
+                    // head[1].setAttribute("class","show");
+                    console.log(head);
+                }
+            })()
+        </script>
+    </body>
+</html>
+https://github.com/sliiva/front-end-project.git
