@@ -10,6 +10,9 @@
         <link rel="stylesheet" href="./css/pc.css">
     </head>
     <body>
+        <!--[if lt IE 9]>
+            <p class="chromeframe">您使用的IE浏览器版本过低，本站不再支持，<a href="//windows.microsoft.com/">升级您的IE浏览器</a>，或使用<a href="//www.google.cn/chrome/">Google Chrome</a>、<a href="//www.firefox.com.cn/download/">Firefox</a>等高级浏览器，将会得到更好的体验！</p>
+        <![endif]-->
     	<div class="main">
     		<div class="slider_left">
     			<header>
@@ -1189,6 +1192,8 @@
                 ul[0].onclick=function(e){
                     let target=e.target;
                     let actives=document.querySelector(".slider_right>ul>li>a.hover");
+                    console.log(target);
+                    console.log(target==actives);
                     if(actives&&actives!=target){
                         actives.removeAttribute("class");
                     }
@@ -1198,19 +1203,72 @@
                 document.onscroll=function(e){
                     let target=e.target;
                     let scrollHeight=target.documentElement.scrollTop;
+                    console.log(scrollHeight)
                     let slider=document.querySelector(".slider_right");
                     let classNm=slider.className;
-                    if(scrollHeight>800&&classNm.indexOf("fixed")==-1){
+                    //固定右边slider
+                    if(scrollHeight>543&&classNm.indexOf("fixed")==-1){
                         classNm+=" fixed"
                     }
-                    if(scrollHeight<800){
-                        console.log("<800")
+                    if(scrollHeight<543){
                         let index=classNm.indexOf("fixed");
                         if(index!=-1){
                             classNm=classNm.slice(0,index);
                         }
                     }
                     slider.className=classNm;
+
+                    //改变高亮区域
+                    let anchors=document.querySelectorAll(".slider_right>ul>li>a");
+                    let actives=document.querySelector(".slider_right>ul>li>a.hover");
+                    let i;
+                    if(scrollHeight<925&&scrollHeight>=540){
+                        anchors[0].setAttribute("class","hover")
+                        anchors[1].removeAttribute("class");
+                    }else if(scrollHeight<1306&&scrollHeight>=925){
+                        i=1;
+                    }else if(scrollHeight<1688&&scrollHeight>=1306){
+                        i=2;
+                    }else if(scrollHeight<2069&&scrollHeight>=1688){
+                        i=3;
+                    }else if(scrollHeight<2451&&scrollHeight>=2069){
+                        i=4;
+                    }else if(scrollHeight<2833&&scrollHeight>=2451){
+                        i=5;
+                    }else if(scrollHeight<3210&&scrollHeight>=2833){
+                        i=6;
+                    }else if(scrollHeight<3596&&scrollHeight>=3210){
+                        i=7;
+                    }else if(scrollHeight<3978&&scrollHeight>=3596){
+                        i=8;
+                    }else if(scrollHeight<4354&&scrollHeight>=3978){
+                        i=9;
+                    }else if(scrollHeight<4740&&scrollHeight>=4354){
+                        i=10;
+                    }else if(scrollHeight<5122&&scrollHeight>=4740){
+                        i=11;
+                    }else if(scrollHeight<5504&&scrollHeight>=5122){
+                        i=12;
+                    }else if(scrollHeight<5885&&scrollHeight>=5504){
+                        i=13;
+                    }else if(scrollHeight<6267&&scrollHeight>=5885){
+                        i=14;
+                    }else if(scrollHeight<9374&&scrollHeight>=6267){
+                        i=15;
+                    }else{
+                        if(actives){
+                            actives.removeAttribute("class");
+                        }
+                    }
+                    if(i<15&&i>0){
+                        anchors[i-1].removeAttribute("class");
+                        anchors[i+1].removeAttribute("class");
+                        anchors[i].setAttribute("class","hover");
+                    }
+                    if(i==15){
+                        anchors[i-1].removeAttribute("class");
+                        anchors[i].setAttribute("class","hover");
+                    }
                 }
                 //为top添加事件，回到顶部
                 let toTop=document.querySelector(".top");
